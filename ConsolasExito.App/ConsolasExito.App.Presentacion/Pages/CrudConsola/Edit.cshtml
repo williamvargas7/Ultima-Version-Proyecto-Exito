@@ -1,0 +1,85 @@
+@page
+@model ConsolasExito.App.Presentacion.Pages.CrudConsola.EditModel
+
+@{
+    ViewData["Title"] = "Edit";
+}
+
+<h1>Edit</h1>
+
+<h4>Consola</h4>
+<hr />
+<div class="row">
+    <div class="col-md-4">
+        <form method="post">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <input type="hidden" asp-for="Consola.Id" />
+            <div class="form-group">
+                <label asp-for="Consola.Nombre" class="control-label"></label>
+                <input asp-for="Consola.Nombre" class="form-control" />
+                <span asp-validation-for="Consola.Nombre" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Consola.Version" class="control-label"></label>
+                <input asp-for="Consola.Version" class="form-control" />
+                <span asp-validation-for="Consola.Version" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Consola.Fabricante" class="control-label"></label>
+                <input asp-for="Consola.Fabricante" class="form-control" />
+                <span asp-validation-for="Consola.Fabricante" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Consola.CapAlmacenamiento" class="control-label"></label>
+                <input asp-for="Consola.CapAlmacenamiento" class="form-control" />
+                <span asp-validation-for="Consola.CapAlmacenamiento" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                 <label asp-for="Consola.TipoAlmacenamiento" class="control-label"></label>
+                <select asp-for="Consola.TipoAlmacenamiento" class="form-control">
+                    <option >Seleccionar</option>
+                    <option value="0">SSD</option>
+                    <option value="1">HDD</option>
+                    <option value="2">AMBOS</option>
+                </select>
+                <span asp-validation-for="Consola.TipoAlmacenamiento" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Consola.VelocidadRam" class="control-label"></label>
+                <input asp-for="Consola.VelocidadRam" class="form-control" />
+                <span asp-validation-for="Consola.VelocidadRam" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Consola.VelocidadProcesador" class="control-label"></label>
+                <input asp-for="Consola.VelocidadProcesador" class="form-control" />
+                <span asp-validation-for="Consola.VelocidadProcesador" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Consola.NumControles" class="control-label"></label>
+                <input asp-for="Consola.NumControles" class="form-control" />
+                <span asp-validation-for="Consola.NumControles" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Consola.PrecioCompra" class="control-label"></label>
+                <input asp-for="Consola.PrecioCompra" class="form-control" />
+                <span asp-validation-for="Consola.PrecioCompra" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Consola.PrecioVenta" class="control-label"></label>
+                <input asp-for="Consola.PrecioVenta" class="form-control" />
+                <span asp-validation-for="Consola.PrecioVenta" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <input type="submit" value="Save" class="btn btn-primary" />
+            </div>
+        </form>
+    </div>
+</div>
+
+<div>
+    <a asp-page="./Index">Back to List</a>
+</div>
+
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+}

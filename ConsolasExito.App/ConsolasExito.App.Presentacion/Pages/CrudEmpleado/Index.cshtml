@@ -1,0 +1,84 @@
+@page
+@model ConsolasExito.App.Presentacion.Pages.CrudEmpleado.IndexModel
+
+@{
+    ViewData["Title"] = "Index";
+}
+
+<h1>Empleado</h1>
+
+<p>
+    <a asp-page="Create">Crear nuevo</a>
+</p>
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.Empleado[0].Nombres)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Empleado[0].Apellidos)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Empleado[0].Edad)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Empleado[0].Identidad)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Empleado[0].sucursal)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Empleado[0].Usuario)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Empleado[0].Password)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Empleado[0].RolPerson)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Empleado[0].accesoReportes)
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+@foreach (var item in Model.Empleado) {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.Nombres)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Apellidos)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Edad)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Identidad)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.sucursal)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Usuario)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Password)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.RolPerson)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.accesoReportes)
+            </td>
+            <td>
+                <a asp-page="./Edit" asp-route-id="@item.Id">Edit</a> |
+                <a asp-page="./Details" asp-route-id="@item.Id">Details</a> |
+                <a asp-page="./Delete" asp-route-id="@item.Id">Delete</a>
+            </td>
+        </tr>
+}
+    </tbody>
+</table>
