@@ -8,7 +8,6 @@ using Microsoft.AspNetCore.Http;
 using ConsolasExito.App.Dominio;
 using ConsolasExito.App.Persistencia;
 
-
 namespace ConsolasExito.App.Presentacion.Pages
 {
     public class LoginModel : PageModel
@@ -21,23 +20,9 @@ namespace ConsolasExito.App.Presentacion.Pages
         public string MensajeUsuario { get; set; }
         [BindProperty]
         public string MensajePassword { get; set; }
-
-        [BindProperty]
-        public bool UsuarioAutenticado {get; set;}
-
-
         public void OnGet()
         {
-            var usuarioAutenticado = HttpContext.Session.GetString("usuarioAutenticado");
-            if(usuarioAutenticado != null){
-                UsuarioAutenticado = true;
-            }else{
-                UsuarioAutenticado = false;
-            }
-
         }
-
-        
 
         public IActionResult OnPost()
         {
@@ -55,7 +40,6 @@ namespace ConsolasExito.App.Presentacion.Pages
 
                 if (empleado.Password.Equals(Password))
                 {
-                    HttpContext.Session.SetString("usuarioAutenticado", "True");
                     return RedirectToPage("../Index");
                 }
                 else
